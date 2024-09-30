@@ -3,37 +3,48 @@
 import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 import MobileNav from "./MobileNav";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
 
 const Navber = () => {
   return (
     <div className="flex items-center justify-between py-5 font-medium">
-      <div className="w-36 overflow-hidden">
+      <Link to="/" className="w-36 overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src={assets.logo}
           alt="Forever icon"
         />
-      </div>
+      </Link>
 
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
+        {/* HOME */}
         <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p className="uppercase">Home</p>
+          <h3 className="uppercase">Home</h3>
           <hr className=" w-2/4 border-none h-[2px] bg-gray-700 hidden" />
         </NavLink>
 
+        {/* COLLECTION */}
         <NavLink to="/collection" className="flex flex-col items-center gap-1">
-          <p className="uppercase">Collection</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <h3 className="uppercase">Collection</h3>
+          <hr className=" w-2/4 border-none h-[2px] bg-gray-700 hidden" />
         </NavLink>
 
+        {/* ABOUT */}
         <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p className="uppercase">About</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <h3 className="uppercase">About</h3>
+          <hr className=" w-2/4 border-none h-[2px] bg-gray-700 hidden" />
         </NavLink>
 
+        {/* CONTACT */}
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p className="uppercase">Contact</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <h3 className="uppercase">Contact</h3>
+          <hr className=" w-2/4 border-none h-[2px] bg-gray-700 hidden" />
         </NavLink>
       </ul>
 
@@ -43,20 +54,30 @@ const Navber = () => {
           className="w-5 cursor-pointer"
           alt="search icon"
         />
-        <div className="group relative:">
-          <img
-            src={assets.profile_icon}
-            className="w-5 cursor-pointer"
-            alt="profile icon"
-          />
-          <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
-              <p className="cursor-pointer hover:text-black">Log Out</p>
-            </div>
-          </div>
-        </div>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <img
+              src={assets.profile_icon}
+              className="w-5 cursor-pointer"
+              alt="profile icon"
+            />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem className="flex flex-col items-start gap-2">
+              <Link to="/">My Profile</Link>
+              <Link to="/">Orders</Link>
+              <Button
+                className="font-semibold -px-4  hover:no-underline"
+                variant="link"
+              >
+                Log Out
+              </Button>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        {/* BUSKET */}
         <Link to="/cart" className="relative">
           <img
             src={assets.cart_icon}
