@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { assets } from "../assets/assets";
+"use client";
+
 import { Link, NavLink } from "react-router-dom";
+import { assets } from "../assets/assets";
+import MobileNav from "./MobileNav";
 
 const Navber = () => {
-  const [visable, setVisiable] = useState(false);
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <div className="w-36 overflow-hidden">
@@ -17,22 +18,22 @@ const Navber = () => {
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p className="uppercase">Home</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden transition duration-300 ease-in-out" />
+          <hr className=" w-2/4 border-none h-[2px] bg-gray-700 hidden" />
         </NavLink>
 
         <NavLink to="/collection" className="flex flex-col items-center gap-1">
           <p className="uppercase">Collection</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden transition duration-300 ease-in-out" />
+          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
 
         <NavLink to="/about" className="flex flex-col items-center gap-1">
           <p className="uppercase">About</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden transition duration-500 ease-in-out" />
+          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
 
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
           <p className="uppercase">Contact</p>
-          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden transition duration-300 ease-in-out" />
+          <hr className=" w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
       </ul>
 
@@ -66,12 +67,9 @@ const Navber = () => {
             0
           </p>
         </Link>
-        <img
-          onClick={() => setVisiable(true)}
-          src={assets.menu_icon}
-          className="w-5 cursor-pointer sm:hidden"
-          alt="menu icon"
-        />
+
+        {/* MOBILE NAV MENU ITEM */}
+        <MobileNav />
       </div>
     </div>
   );
