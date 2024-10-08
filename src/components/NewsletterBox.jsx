@@ -21,7 +21,7 @@ const NewsletterBox = () => {
         className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6"
       >
         <Input
-          className="w-full sm:flex-1 outline-none border border-gray-200"
+          className="w-full sm:flex-1 outline-none border-2 border-gray-200 focus-visible:ring-0"
           placeholder="Enter your email"
           type="email"
           required

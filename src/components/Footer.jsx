@@ -37,7 +37,9 @@ const Footer = () => {
         </div>
 
         <div>
-          <p className="uppercase text-xl font-medium mb-5">Get in touch</p>
+          <p className="uppercase text-gray-700 text-xl font-medium mb-5">
+            Get in touch
+          </p>
 
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+1-123-234-324</li>
